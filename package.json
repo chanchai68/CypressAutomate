@@ -1,0 +1,26 @@
+{
+  "name": "cypressautomate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanchai68/CypressAutomate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chanchai68/CypressAutomate/issues"
+  },
+  "homepage": "https://github.com/chanchai68/CypressAutomate#readme",
+  "devDependencies": {
+    "cypress": "^11.2.0"
+  }
+}
