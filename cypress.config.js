@@ -11,12 +11,14 @@ module.exports = defineConfig({
     pageLoadTimeout:10000
   },
   env: {
-    "URLLogin": "https://identity.telerik.com/login?client_id=http:%2F%2Fwww.lean.telerik.com&redirect_uri=https:%2F%2Fwww.telerik.com%2Ftracking%2Flogin%3Fredirect_uri%3Dhttps%253a%252f%252fwww.telerik.com%252faccount%252f&response_type=code&state=187C200A59CA32EDCC9E4A99F73773E951EC4894DA638020494D417C23C8AE7E",
-    "User": "chanchaifwork@gmail.com",
+    "URLLogin": "https://parabank.parasoft.com/parabank/index.htm",
+    "User": "Chanchai",
+    "UserSession": "chanchaifwork@gmail.com",
     "Pass": "Password123",
     "URLGET": "https://api.genderize.io?name=chanchai",
     "URLPOST": "https://fakestoreapi.com/products",
     "URLPUT": "https://fakestoreapi.com/products/7",
+    "APILogin": "https://identity.telerik.com/client-api/signin",
     "Name": "Cucumber",
     "Category": "Vegetable"
   },

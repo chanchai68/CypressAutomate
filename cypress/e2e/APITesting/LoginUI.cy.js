@@ -2,45 +2,31 @@ export function login() {
 
     Cypress.Commands.add("Login", (Username,Password,Case) => {
     
-        cy.get('.u-mb30').should('be.visible').invoke('text').then((text) => {
-            expect(text.trim()).contains('Enter Your Email to Sign in')
+      cy.get('h2').should('be.visible').invoke('text').then((text) => {
+            expect(text.trim()).contains('Customer Login')
           }) 
     
           switch (Case) {
-            case "Fail1": 
+            case "Fail": 
             //Check Error Message
-                cy.get('#email', { timeout: 5000 }).type(Username)
-                cy.get('.messages-container > .label', { timeout: 5000 }).should('be.visible').invoke('text').then((text) => {
-                 expect(text.trim()).contains('Invalid email')
+              cy.get(':nth-child(2) > .input').clear().type(Username).should('have.value', Username)
+              cy.get(':nth-child(4) > .input', { timeout: 5000 }).clear().type(Password).should('have.value', Password)
+              cy.get(':nth-child(5) > .button').scrollIntoView().click()
+                cy.get('.error', { timeout: 5000 }).should('be.visible').invoke('text').then((text) => {
+                 expect(text.trim()).contains('An internal error has occurred and has been logged.')
 
                  cy.url().should('include', '/login') 
                 })
             break;
-            case "Fail2": 
-            //Check Error Message
-                cy.get('#email', { timeout: 5000 }).clear().type(Username)
-                cy.get('.btn', { timeout: 5000 }).scrollIntoView().click()
-                cy.get('.u-mb30', { timeout: 5000 }).should('be.visible').invoke('text').then((text) => {
-                 expect(text.trim()).contains('Create an Account')
-
-                 cy.url().should('include', '/sign-up') 
-                })
-            break;
             case "Pass":
                 //Input Username
-                 cy.get('#email').clear().type(Username)
-                 cy.get('.btn').scrollIntoView().click()
+                cy.get(':nth-child(2) > .input').clear().type(Username).should('have.value', Username)
                  cy.wait(1000)
-                 cy.get('.required-asterisk', { timeout: 5000 }).should('be.visible').invoke('text').then((text) => {
-                    expect(text.trim()).contains('Password') })
-                 cy.get('#password').type("Pass")
-                 //check alert
-                 cy.get('.messages-container > .label', { timeout: 5000 }).should('be.visible').invoke('text').then((text) => {
-                    expect(text.trim()).contains('Password should be 5 to 128 characters long') })
-                //Input Username
-                 cy.get('#password', { timeout: 5000 }).clear().type(Password).should('have.value', Password)
+                //Input Password
+                cy.get(':nth-child(4) > .input', { timeout: 5000 }).clear().type(Password).should('have.value', Password)
                 //  cy.intercept('POST', '**/client-api/signin').as('checklogin')
-                 cy.get('.btn').scrollIntoView().click()
+                cy.get(':nth-child(5) > .button').scrollIntoView().click()
+                cy.url().should('include', '/overview')
                 //Intercept API
                 // cy.wait('@checklogin').its('response.statusCode').should('eq', 200)
             break;
@@ -48,22 +34,22 @@ export function login() {
         }
       })    
     
-    context('Chester', () => {
+    context('Test LoginUI', () => {
       describe('Login', () => {
         beforeEach(() => {
           cy.once('uncaught:exception', () => false);
-          cy.visit(Cypress.env('URLLogin') + 'login', {
+          cy.visit(Cypress.env('URLLogin'), {
             onBeforeLoad: (win) => {
               win.sessionStorage.clear()
             }
           })
           
         })
-        it('Incorrect formate email', () => {
-        cy.Login('qatest',Cypress.env('Pass'),'Fail1')
+        it('Incorrect Username', () => {
+        cy.Login('qatest',Cypress.env('Pass'),'Fail')
     })
-        it('Incorrect email', () => {
-        cy.Login('qa123@gmail.com',Cypress.env('Pass'),'Fail2')
+        it('Incorrect Password', () => {
+        cy.Login(Cypress.env('User'),"123456",'Fail')
       })
         it('Login Success', () => {
         cy.Login(Cypress.env('User'),Cypress.env('Pass'),'Pass')
