@@ -1,10 +1,10 @@
 let token = 
 
 beforeEach(() => {
-    cy.APILogin(Cypress.env('UserSession'), Cypress.env('Pass')).then((value) => {
-        token = value
+    //Call CustomCommand Session
+    cy.loginSession(Cypress.env('UserSession'), Cypress.env('Pass'))
         cy.log(token)
-    })
+
   });
   
   
