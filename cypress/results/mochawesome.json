@@ -1,0 +1,168 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-01-04T08:46:29.261Z",
+    "end": "2023-01-04T08:46:59.717Z",
+    "duration": 30456,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8dcf588e-53f2-4c87-8b63-939bae42371c",
+      "title": "",
+      "fullFile": "cypress/e2e/APITesting/LoginUI.cy.js",
+      "file": "cypress/e2e/APITesting/LoginUI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "656ff67f-2052-46eb-a66f-7a194ecae92f",
+          "title": "Test LoginUI",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "c37a5abf-0d5e-4f2b-8197-9abc4c5644eb",
+              "title": "Login",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Incorrect Username",
+                  "fullTitle": "Test LoginUI Login Incorrect Username",
+                  "timedOut": null,
+                  "duration": 6965,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.Login('qatest', Cypress.env('Pass'), 'Fail');",
+                  "err": {},
+                  "uuid": "5027af6e-9b63-40c9-8c13-fbe4fc679a60",
+                  "parentUUID": "c37a5abf-0d5e-4f2b-8197-9abc4c5644eb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Incorrect Password",
+                  "fullTitle": "Test LoginUI Login Incorrect Password",
+                  "timedOut": null,
+                  "duration": 4319,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.Login(Cypress.env('User'), \"123456\", 'Fail');",
+                  "err": {},
+                  "uuid": "05bcb9be-329e-46c6-a0bd-a3642c11d315",
+                  "parentUUID": "c37a5abf-0d5e-4f2b-8197-9abc4c5644eb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Login Success",
+                  "fullTitle": "Test LoginUI Login Login Success",
+                  "timedOut": null,
+                  "duration": 15702,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.Login(Cypress.env('User'), Cypress.env('Pass'), 'Pass');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 10000ms: expected 'https://parabank.parasoft.com/parabank/login.htm;jsessionid=068957028B6B43C7793C8733E712E8A6' to include '/overview'",
+                    "estack": "AssertionError: Timed out retrying after 10000ms: expected 'https://parabank.parasoft.com/parabank/login.htm;jsessionid=068957028B6B43C7793C8733E712E8A6' to include '/overview'\n    at Context.eval (webpack:///./cypress/e2e/APITesting/LoginUI.cy.js:29:25)",
+                    "diff": null
+                  },
+                  "uuid": "f5771031-345d-4fa2-a3d7-1dbaec57d284",
+                  "parentUUID": "c37a5abf-0d5e-4f2b-8197-9abc4c5644eb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5027af6e-9b63-40c9-8c13-fbe4fc679a60",
+                "05bcb9be-329e-46c6-a0bd-a3642c11d315"
+              ],
+              "failures": [
+                "f5771031-345d-4fa2-a3d7-1dbaec57d284"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 26986,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": true,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/results"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

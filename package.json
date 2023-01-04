@@ -21,6 +21,11 @@
   },
   "homepage": "https://github.com/chanchai68/CypressAutomate#readme",
   "devDependencies": {
-    "cypress": "^11.2.0"
+    "cypress": "^11.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "mocha": "^10.2.0"
   }
 }
